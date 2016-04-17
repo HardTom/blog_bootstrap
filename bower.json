@@ -1,0 +1,21 @@
+{
+  "name": "blog_bootstrap",
+  "homepage": "https://github.com/HardTom/blog_bootstrap",
+  "authors": [
+    "jinge <gej@hortor.net>"
+  ],
+  "description": "blog",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4"
+  }
+}
