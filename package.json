@@ -18,8 +18,13 @@
   "homepage": "https://github.com/HardTom/blog_bootstrap#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "consolidate": "^0.14.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
-    "multer": "^1.1.0"
+    "multer": "^1.1.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "hbs": "^4.0.0"
   }
 }

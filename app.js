@@ -1,21 +1,27 @@
 /**
  * Created by tom on 16/4/17.
  */
-var http = require('http');
 var express = require('express');
 var app = express();
 
-http.createServer(function (request, response) {
+// 设定port变量，意为访问端口
+app.set('port', process.env.PORT || 3000);
 
-    // 发送 HTTP 头部
-    // HTTP 状态值: 200 : OK
-    // 内容类型: text/plain
-    response.writeHead(200, {'Content-Type': 'text/plain'});
+//public views bower_components 公共目录
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
-    // 发送响应数据 "Hello World"
-    response.end('Hello World\n');
-}).listen(8081);
+app.get('/', function (req, res){
+    // res.send({name:"app"});
+});
+
+app.get('/about',function (rep,res) {
+    res.send({name:"about"});
+});
+
+//listen 3000
+app.listen(app.get('port'));
 
 // 终端打印如下信息
-console.log('Server running at http://127.0.0.1:8081/');
-
+console.log('Server running at http://127.0.0.1:%d/',app.get('port'));
