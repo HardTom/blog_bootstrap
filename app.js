@@ -18,15 +18,11 @@ app.get('/', function (req, res){
 });
 
 app.get('/about',function (rep,res) {
-    res.send({name:"about"});
+    //res.send({name:"about"});
 });
 
 //listen 3000
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write('hello, i know nodejitsu.')
-    res.end();
-}).listen(app.get('port'));
+http.createServer(app).listen(app.get('port'));
 
 // 终端打印如下信息
 console.log('Server running at http://127.0.0.1:%d/',app.get('port'));
