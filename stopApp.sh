@@ -1,3 +1,3 @@
 #/bin/bash
 
-forever stop app.js           #关闭
+forever stopall           #关闭
