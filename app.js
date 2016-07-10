@@ -2,6 +2,7 @@
  * Created by tom on 16/4/17.
  */
 var express = require('express');
+var http = require('http');
 var app = express();
 
 // 设定port变量，意为访问端口
@@ -21,7 +22,11 @@ app.get('/about',function (rep,res) {
 });
 
 //listen 3000
-app.listen(app.get('port'));
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('hello, i know nodejitsu.')
+    res.end();
+}).listen(app.get('port'));
 
 // 终端打印如下信息
 console.log('Server running at http://127.0.0.1:%d/',app.get('port'));

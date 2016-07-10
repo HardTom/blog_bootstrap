@@ -6,3 +6,5 @@ bower_components/
 .idea/workspace.xml
 err.log
 out.log
+
+/.idea/workspace.xml
