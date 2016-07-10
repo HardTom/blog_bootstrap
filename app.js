@@ -17,6 +17,10 @@ app.get('/', function (req, res){
 
 });
 
+app.post('/about', function (req, res){
+     res.send({name:123});
+});
+
 //listen 3000
 http.createServer(app).listen(app.get('port'));
 
