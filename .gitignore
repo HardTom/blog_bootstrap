@@ -2,4 +2,5 @@ node_modules/
 bower_components/
 /nbproject/private/
 .idea/*
-.ideass
+.idea
+.idea/workspace.xml
