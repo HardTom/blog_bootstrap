@@ -3,3 +3,5 @@ bower_components/
 /nbproject/private/
 .idea/*
 .ideass
+err.log
+out.log
