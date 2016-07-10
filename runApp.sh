@@ -1,3 +1,3 @@
-#/bin/bash
-forever start -l forever.log -a out.log -e err.log app.js   #输出日志和错误
+#!/bin/bash
+forever start -a -l forever.log -o out.log -e err.log -w app.js   #输出日志和错误
 
