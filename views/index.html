@@ -1,17 +1,47 @@
 <!DOCTYPE HTML>
 <html ng-app="blog">
-    <head>
-        <meta charset="UTF-8">
-        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/stylesheets/common.css" rel="stylesheet"/>
-        <script src="/bower_components/angular/angular.min.js"></script>
-        <script src="/bower_components/angular-route/angular-route.min.js"></script>
-        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="/javascripts/home.js"></script>
-    </head>
-    <body ng-controller="layoutCtrl">
-        <div ng-view></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/normalize-css/normalize.css" rel="stylesheet"/>
+    <link href="/stylesheets/common.css" rel="stylesheet"/>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+    <script src="/javascripts/home.js"></script>
+</head>
+<body ng-controller="layoutCtrl">
+<!-- 导航 -->
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ng-repeat="i in mainMenu" ng-class="{'active': $route.current.activetab == i.page}" ng-click="menuClick($index)"><a href="#/{{i.page}}">{{i.name}}</a></li>
+        </ul>
+    </nav>
+</header>
 
-    </body>
+<!--<pre>$location.path() = {{$location.path()}}</pre>-->
+<!--<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>-->
+<!--<pre>$route.current.activetab = {{$route.current.activetab}}</pre>-->
+<!--<pre>$route.current.params = {{$route.current.params}}</pre>-->
+<!--<pre>$routeParams = {{$routeParams}}</pre>-->
+
+
+<div ng-view></div>
+
+<!-- 结尾 -->
+<footer class="footer ">
+    <div class="container">
+        <div class="row footer-bottom">
+            <ul class="list-inline text-center">
+                <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备15042839号-1</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
 </html>
