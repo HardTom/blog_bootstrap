@@ -1,1 +1,29 @@
 body { padding-top: 50px; }
+
+.masthead {
+  margin-bottom: 0;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 40px 0;
+  color: #fff;
+}
+
+.bc-social {
+  padding: 15px 0;
+  background-color: #f5f5f5;
+}
+
+.bc-social-buttons {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.bc-social-buttons li {
+  display: inline-block;
+  line-height: 1;
+  color: #555;
+}
