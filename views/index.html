@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="一个喜欢做游戏的大叔，但是十分的猥琐。">
     <meta name="keywords" content="技术,博客,手机游戏开发,大叔">
-    <meta property="wb:webmaster" content="6fe68af5b82961b4" />
+    <meta property="wb:webmaster" content="6fe68af5b82961b4"/>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="/bower_components/normalize-css/normalize.css" rel="stylesheet"/>
@@ -17,13 +17,15 @@
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/underscore/underscore-min.js"></script>
     <script src="/javascripts/home.js"></script>
+    <script src="/javascripts/network.js"></script>
 </head>
 <body ng-controller="layoutCtrl">
 <!-- 导航 -->
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
         <ul class="nav nav-tabs">
-            <li role="presentation" ng-repeat="i in mainMenu" ng-class="{'active': $route.current.activetab == i.page}"><a href="#/{{i.page}}">{{i.name}}</a></li>
+            <li role="presentation" ng-repeat="i in mainMenu" ng-class="{'active': $route.current.activetab == i.page}">
+                <a href="#/{{i.page}}">{{i.name}}</a></li>
         </ul>
     </nav>
 </header>
