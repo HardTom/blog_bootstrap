@@ -28,3 +28,37 @@ body { padding-top: 50px; }
   line-height: 1;
   color: #555;
 }
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+}
+
+.projects .thumbnail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 310px;
+  margin-bottom: 30px;
+  border-radius: 0;
+}
+
+.projects .thumbnail .caption {
+  height: 200px;
+  overflow-y: hidden;
+  color: #555;
+}
+
+.projects .thumbnail img {
+  max-width: 100%;
+  height: auto;
+}
