@@ -26,7 +26,7 @@ var myAppModule = angular.module('blog', ['ngRoute']).
         });
 }]);
 
-myAppModule.controller('layoutCtrl', function ($scope,$location,$route,$routeParams) {
+myAppModule.controller('layoutCtrl', function ($scope,$http,$location,$route,$routeParams) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
@@ -36,4 +36,16 @@ myAppModule.controller('layoutCtrl', function ($scope,$location,$route,$routePar
         {page:'blog',name:"博文"},
         {page:'game',name:"游戏"},
         {page:'other',name:"其他"}];
+
+    network.about(
+        $http,
+        function (data, status, header, config) {
+            console.log("data : " + JSON.stringify(data));
+            console.log("about success");
+        },
+        function (data, status, header, config) {
+            console.log("about fail");
+        }
+    );
+
 });
