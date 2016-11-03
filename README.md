@@ -20,7 +20,7 @@ windows版本
 ```
 
 在server app.js 加入以下几句
-```
+```js
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
   
@@ -39,7 +39,7 @@ mongodb连接成功
 
 以下是关于mongodb 简单的用法
 
-```
+```js
 var insertDocuments = function(db, callback) {
      // Get the documents collection
      var collection = db.collection('documents');
