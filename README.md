@@ -7,7 +7,9 @@
 #### mongoDB的环境搭建
 
 windows版本
+
 安装 [mongodb-win32-x86_64-2008plus-ssl-3.2.9-signed.msi](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.2.9-signed.msi?_ga=1.254607936.938313312.1474618921)
+
 在项目目录下执行 npm install mongodb --save
 
 建立目录文件夹C:\data\db
