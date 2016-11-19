@@ -19,6 +19,8 @@
     "underscore": "^1.8.3",
     "normalize-strings": "normalize#^1.0.4",
     "normalize-css": "^4.2.0",
-    "font-awesome": "fontawesome#^4.6.3"
+    "font-awesome": "fontawesome#^4.6.3",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
   }
 }

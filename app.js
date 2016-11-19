@@ -7,7 +7,7 @@ var app = express();
 
 var mongodb = require('mongodb');
 var assert = require('assert');
-
+var mongoose = require('mongoose');
 
 
 // 设定port变量，意为访问端口
@@ -22,22 +22,55 @@ app.get('/', function (req, res){
 
 });
 
-// Connection URL
+//mongoose
+//127.0.0.1 localhost
 var url = 'mongodb://localhost:27017/blog';
-// Use connect method to connect to the Server
-mongodb.MongoClient.connect(url, function(err, db) {
-     assert.equal(null, err);
-     console.log("Connected correctly to server");
-     insertDocuments(db, function() {
-          updateDocument(db, function() {
-               deleteDocument(db, function() {
-                    findDocuments(db, function() {
-                         db.close();
-                    });
-               });
-          });
-     });
+var db = mongoose.createConnection('127.0.0.1','blog',27017);
+db.on('error',console.error.bind(console,'连接错误:'));
+db.once('open',function(){
+     //一次打开记录
+     console.info("open db");
 });
+var PersonSchema = new mongoose.Schema({
+     name:String   //定义一个属性name，类型为String
+})
+var PersonModel = db.model('Person',PersonSchema,'per');
+var personEntity = new PersonModel({
+     name: "Jack"
+});
+personEntity.save(function (err, persons) {
+     if (err) {
+          return console.error(persons);
+     }
+     console.info(persons);
+});
+// var personEntity = new PersonModel({name:'Krouky'});
+// personEntity.save();
+// PersonModel.find(function(err,persons){
+//      //查询到的所有person
+//      console.info(persons);
+// });
+
+
+
+
+
+
+// Connection URL
+// Use connect method to connect to the Server
+// mongodb.MongoClient.connect(url, function(err, db) {
+//      assert.equal(null, err);
+//      console.log("Connected correctly to server");
+//      insertDocuments(db, function() {
+//           updateDocument(db, function() {
+//                deleteDocument(db, function() {
+//                     findDocuments(db, function() {
+//                          db.close();
+//                     });
+//                });
+//           });
+//      });
+// });
 
 var insertDocuments = function(db, callback) {
      // Get the documents collection
