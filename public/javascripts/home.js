@@ -20,11 +20,29 @@ var myAppModule = angular.module('blog', ['ngRoute']).
             templateUrl: 'other.html',
             activetab: 'other'
         })
+        .when('/send', {
+            templateUrl: 'send.html',
+            activetab: 'send'
+        })
         .otherwise({
             redirectTo: '/home',
             activetab: 'home'
         });
 }]);
+
+myAppModule.directive('script', function() {
+    return {
+        restrict: 'E',
+        scope: false,
+        link: function (scope, elem, attr) {
+            if (attr.type === 'text/javascript') {
+                var code = elem.text();
+                var f = new Function(code);
+                f();
+            }
+        }
+    };
+});
 
 myAppModule.controller('layoutCtrl', function ($scope,$http,$location,$route,$routeParams) {
     $scope.$route = $route;
@@ -35,7 +53,9 @@ myAppModule.controller('layoutCtrl', function ($scope,$http,$location,$route,$ro
         {page:'home',name:"首页"},
         {page:'blog',name:"博文"},
         {page:'game',name:"游戏"},
-        {page:'other',name:"其他"}];
+        {page:'other',name:"其他"},
+        {page:'send',name:"写博文"}
+    ];
 
     network.about(
         $http,

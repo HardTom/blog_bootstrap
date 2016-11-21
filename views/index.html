@@ -10,12 +10,16 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="/bower_components/normalize-css/normalize.css" rel="stylesheet"/>
+    <!--<link href="/bower_components/tinymce/skins/lightgray/skin.min.css" rel="stylesheet"/>-->
     <link href="/stylesheets/common.css" rel="stylesheet"/>
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/underscore/underscore-min.js"></script>
+    <!--<script src="/bower_components/tinymce/tinymce.min.js"></script>-->
+    <!--<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>-->
+    <script src="/ckeditor/ckeditor.js"></script>
     <script src="/javascripts/home.js"></script>
     <script src="/javascripts/network.js"></script>
 </head>
@@ -29,17 +33,26 @@
         </ul>
     </nav>
 </header>
-
 <!--<pre>$location.path() = {{$location.path()}}</pre>-->
 <!--<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>-->
 <!--<pre>$route.current.activetab = {{$route.current.activetab}}</pre>-->
 <!--<pre>$route.current.params = {{$route.current.params}}</pre>-->
 <!--<pre>$routeParams = {{$routeParams}}</pre>-->
 
-<div ng-view></div>
+<!--<script type="text/javascript">-->
+<!--tinymce.init({-->
+<!--selector: '#myeditablediv'-->
+<!--});-->
+<!--</script>-->
+<!--<form method="post">-->
+<!--<div id="myeditablediv">Hello, World!</div>-->
+<!--</form>-->
+
+<div ng-view>
+</div>
 
 <!-- 结尾 -->
-<footer class="footer ">
+<footer class="footer">
     <div class="container">
         <div class="row footer-bottom">
             <ul class="list-inline text-center">
@@ -47,6 +60,7 @@
             </ul>
         </div>
     </div>
+
 </footer>
 
 </body>

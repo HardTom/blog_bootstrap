@@ -17,6 +17,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/ckeditor',  express.static(__dirname + '/ckeditor'));
 
 app.get('/', function (req, res){
 
@@ -25,25 +26,25 @@ app.get('/', function (req, res){
 //mongoose
 //127.0.0.1 localhost
 var url = 'mongodb://localhost:27017/blog';
-var db = mongoose.createConnection('127.0.0.1','blog',27017);
-db.on('error',console.error.bind(console,'连接错误:'));
-db.once('open',function(){
-     //一次打开记录
-     console.info("open db");
-});
-var PersonSchema = new mongoose.Schema({
-     name:String   //定义一个属性name，类型为String
-})
-var PersonModel = db.model('Person',PersonSchema,'per');
-var personEntity = new PersonModel({
-     name: "Jack"
-});
-personEntity.save(function (err, persons) {
-     if (err) {
-          return console.error(persons);
-     }
-     console.info(persons);
-});
+// var db = mongoose.createConnection('127.0.0.1','blog',27017);
+// db.on('error',console.error.bind(console,'连接错误:'));
+// db.once('open',function(){
+//      //一次打开记录
+//      console.info("open db");
+// });
+// var PersonSchema = new mongoose.Schema({
+//      name:String   //定义一个属性name，类型为String
+// })
+// var PersonModel = db.model('Person',PersonSchema,'per');
+// var personEntity = new PersonModel({
+//      name: "Jack"
+// });
+// personEntity.save(function (err, persons) {
+//      if (err) {
+//           return console.error(persons);
+//      }
+//      console.info(persons);
+// });
 // var personEntity = new PersonModel({name:'Krouky'});
 // personEntity.save();
 // PersonModel.find(function(err,persons){
