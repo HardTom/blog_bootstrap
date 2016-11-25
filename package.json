@@ -21,9 +21,10 @@
     "consolidate": "^0.14.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.14.0",
+    "formidable": "^1.0.17",
     "mongodb": "^2.2.11",
     "mongoose": "^4.6.5",
-    "multer": "^1.1.0",
+    "multer": "^1.2.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {

@@ -3,11 +3,16 @@
  */
 var express = require('express');
 var http = require('http');
+var path = require('path');
 var app = express();
 
 var mongodb = require('mongodb');
 var assert = require('assert');
 var mongoose = require('mongoose');
+var fs = require('fs');
+var formidable =require('formidable');
+// var multer  = require('multer');
+// var upload = multer({ dest: 'upload/' });
 
 
 // 设定port变量，意为访问端口
@@ -17,6 +22,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 app.use('/ckeditor',  express.static(__dirname + '/ckeditor'));
 
 app.get('/', function (req, res){
@@ -133,7 +139,50 @@ app.post('/about', function (req, res){
      res.send({name:123});
 });
 
+//上传image
+app.post('/UploadImage', function(req, res, next){
+     var form = new formidable.IncomingForm();
+     form.uploadDir = '/tmp';   //文件保存在系统临时目录
+     form.maxFieldsSize = 1 * 1024 * 1024;  //上传文件大小限制为最大1M
+     form.keepExtensions = true;        //使用文件的原扩展名
 
+     var targetDir = path.join(__dirname, './public/upload');
+     // 检查目标目录，不存在则创建
+     fs.access(targetDir, function(err){
+          if(err){
+               fs.mkdirSync(targetDir);
+          }
+          _fileParse();
+     });
+
+     // 文件解析与保存
+     function _fileParse() {
+          form.parse(req, function (err, fields, files) {
+               if (err) throw err;
+               var filesUrl = [];
+               var errCount = 0;
+               var keys = Object.keys(files);
+               keys.forEach(function(key){
+                    var filePath = files[key].path;
+                    var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+                    if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
+                         errCount += 1;
+                    } else {
+                         //以当前时间戳对上传文件进行重命名
+                         var fileName = new Date().getTime() + fileExt;
+                         var targetFile = path.join(targetDir, fileName);
+                         //移动文件
+                         fs.renameSync(filePath, targetFile);
+                         // 文件的Url（相对路径）
+                         filesUrl.push('/upload/'+fileName)
+                    }
+               });
+
+               // 返回上传信息
+               res.json({filesUrl:filesUrl, success:keys.length-errCount, error:errCount});
+          });
+     }
+});
 
 //listen 3000
 http.createServer(app).listen(app.get('port'));

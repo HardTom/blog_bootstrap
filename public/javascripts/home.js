@@ -30,6 +30,7 @@ var myAppModule = angular.module('blog', ['ngRoute']).
         });
 }]);
 
+//add script in ng-view
 myAppModule.directive('script', function() {
     return {
         restrict: 'E',
@@ -56,6 +57,11 @@ myAppModule.controller('layoutCtrl', function ($scope,$http,$location,$route,$ro
         {page:'other',name:"其他"},
         {page:'send',name:"写博文"}
     ];
+
+    //发送博文
+    $scope.send = function () {
+        console.info("data : " + CKEDITOR.instances.editor.getData());
+    }
 
     network.about(
         $http,

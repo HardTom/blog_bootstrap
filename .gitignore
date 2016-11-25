@@ -8,3 +8,4 @@ err.log
 out.log
 
 /.idea/workspace.xml
+/public/upload

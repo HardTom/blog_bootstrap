@@ -1,39 +1,15 @@
 <div class="container-fluid">
-    <!--<script type="text/javascript">-->
-        <!--tinymce.init({-->
-            <!--selector: 'div#myeditablediv',-->
-            <!--inline: true-->
-        <!--});-->
-    <!--</script>-->
-    <!--<form method="post">-->
-        <!--<div id="myeditablediv">Hello, World!</div>-->
-    <!--</form>-->
     <form>
-        <textarea name="editor2" id="editor2">
-            This is
+        <textarea name="text" id="editor" class="ckeditor">
+            这里写入博客
         </textarea>
-        <script type="text/javascript">
-            console.info("---------- script --------");
-            CKEDITOR.replace('editor2');
-        </script>
+
+        <input ng-click="send()" type="submit" value="提交"/>
     </form>
+    <script type="text/javascript">
+        CKEDITOR.replace('editor',{
+            anguage: 'zh-cn',
+            filebrowserImageUploadUrl: 'UploadImage',
+        });
+    </script>
 </div>
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-    <!--<script src='http://127.0.0.1:3000/bower_components/tinymce/tinymce.min.js'></script>-->
-    <!--<script>-->
-        <!--tinymce.init({-->
-            <!--selector: '#mytextarea'-->
-        <!--});-->
-    <!--</script>-->
-<!--</head>-->
-
-<!--<body>-->
-<!--<h1>TinyMCE Quick Start Guide</h1>-->
-<!--<form method="post">-->
-    <!--<textarea id="mytextarea">Hello, World!</textarea>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
